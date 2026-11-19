@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Nights Cover Studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="studio">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Neon Nights Cover Studio</h1>
+    <p class="tagline">Your photos, a caption, and a Vice City sunset — made into cover art to share.</p>
+
+    <fieldset>
+      <legend>Photos</legend>
+      <div class="slots">
+        <div class="slot">
+          <img id="thumb-0" alt="Photo 1 preview" src="samples/sample-1.jpg">
+          <label class="upload">Upload <input id="upload-0" type="file" accept="image/*"></label>
+          <button id="sample-0" type="button">Sample 1</button>
+        </div>
+        <div class="slot">
+          <img id="thumb-1" alt="Photo 2 preview" src="samples/sample-2.jpg">
+          <label class="upload">Upload <input id="upload-1" type="file" accept="image/*"></label>
+          <button id="sample-1" type="button">Sample 2</button>
+        </div>
+        <div class="slot">
+          <img id="thumb-2" alt="Photo 3 preview" src="samples/sample-3.jpg">
+          <label class="upload">Upload <input id="upload-2" type="file" accept="image/*"></label>
+          <button id="sample-2" type="button">Sample 3</button>
+        </div>
+      </div>
+      <button id="load-samples" type="button">Load all three samples</button>
+      <p class="hint">Photos stay on your machine — nothing is uploaded.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="picker" id="layout-group">
+        <button type="button" data-layout="poster" class="active" aria-pressed="true">Poster</button>
+        <button type="button" data-layout="grid" aria-pressed="false">Grid</button>
+        <button type="button" data-layout="wide" aria-pressed="false">Wide</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Size</legend>
+      <div class="picker" id="size-group">
+        <button type="button" data-size="square" aria-pressed="false">1080 x 1080</button>
+        <button type="button" data-size="portrait" aria-pressed="false">1080 x 1350</button>
+        <button type="button" data-size="wide" class="active" aria-pressed="true">1920 x 1080</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Colour grade</legend>
+      <div class="picker" id="grade-group">
+        <button type="button" data-grade="sunset" class="active" aria-pressed="true">Sunset</button>
+        <button type="button" data-grade="neon" aria-pressed="false">Neon</button>
+        <button type="button" data-grade="noir" aria-pressed="false">Noir</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Caption</legend>
+      <label>Title <input id="caption" type="text" maxlength="32" value="NEON NIGHTS"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="24" value="VICE CITY"></label>
+      <div class="picker" id="style-group">
+        <button type="button" data-caption-style="solid" class="active" aria-pressed="true">Solid</button>
+        <button type="button" data-caption-style="outline" aria-pressed="false">Outline</button>
+        <button type="button" data-caption-style="glow" aria-pressed="false">Glow</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Selected panel</legend>
+      <p id="selected-panel" class="panel-label">Panel 1 of 3</p>
+      <div class="picker" id="panel-photo-group">
+        <button type="button" data-panel-slot="0" class="active" aria-pressed="true">Photo 1</button>
+        <button type="button" data-panel-slot="1" aria-pressed="false">Photo 2</button>
+        <button type="button" data-panel-slot="2" aria-pressed="false">Photo 3</button>
+      </div>
+      <label>Zoom <span id="zoom-value">1.00x</span>
+        <input id="zoom" type="range" min="1" max="4" step="0.01" value="1">
+      </label>
+      <p class="hint">Click a panel to select it. Drag it to pan the photo, scroll to zoom.</p>
+    </fieldset>
+
+    <button id="export" type="button" class="export">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+  <section class="preview" aria-label="Live cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
