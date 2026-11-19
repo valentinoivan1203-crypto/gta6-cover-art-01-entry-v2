@@ -1,0 +1,47 @@
+/* Neon Nights Cover Studio: a dark editor with neon accents. The Anton
+   display face is vendored under fonts/ under the SIL Open Font License. */
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body { margin: 0; min-height: 100%; background: #0e0a14; color: #f2ecf7; font: 15px/1.45 system-ui, sans-serif; }
+.studio { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 16px; width: 320px; flex: none; }
+.controls h1 { margin: 0; font-family: Anton, sans-serif; font-size: 30px; letter-spacing: 0.04em; color: #ffd166; }
+.tagline { margin: 0; color: #b9aec4; }
+fieldset { margin: 0; padding: 14px; border: 1px solid #33263f; border-radius: 10px; display: flex; flex-direction: column; gap: 10px; }
+legend { font-weight: 700; color: #ffd166; padding: 0 6px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+input[type=text] { font: inherit; padding: 9px; border: 1px solid #4a3a58; border-radius: 6px; background: #1a1226; color: #f2ecf7; }
+input[type=range] { width: 100%; accent-color: #00e5ff; }
+button { font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #4a3a58; border-radius: 6px; background: #1a1226; color: #f2ecf7; cursor: pointer; }
+button:hover { border-color: #00e5ff; }
+button.active { background: #00e5ff; color: #0a0028; border-color: #00e5ff; }
+.picker { display: flex; gap: 8px; flex-wrap: wrap; }
+.picker button { flex: 1; padding: 8px 6px; }
+.slots { display: flex; gap: 10px; }
+.slot { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.slot img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px; border: 1px solid #33263f; }
+.slot button { padding: 7px 4px; font-size: 13px; }
+.upload { display: block; padding: 7px 4px; text-align: center; font-size: 13px; font-weight: 700; border: 1px solid #4a3a58; border-radius: 6px; background: #1a1226; cursor: pointer; }
+.upload input { display: none; }
+.hint { margin: 0; font-size: 13px; color: #9a8fa8; font-weight: 400; }
+.panel-label { margin: 0; font-weight: 700; }
+.export { padding: 13px; font-size: 17px; background: #ff2ea6; border-color: #ff2ea6; color: #fff; }
+.export:hover { border-color: #ff7ac4; background: #ff4db1; }
+#status { margin: 0; min-height: 1.4em; color: #9a8fa8; }
+.preview { flex: 1; display: flex; align-items: flex-start; justify-content: center; min-width: 0; }
+#cover { width: 100%; max-width: 1100px; height: auto; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55); border-radius: 4px; cursor: crosshair; }
+body.shot-cover { background: #000; }
+body.shot-cover .controls { display: none; }
+body.shot-cover .studio { padding: 0; }
+body.shot-cover .preview { display: block; }
+body.shot-cover #cover { width: auto; height: 100vh; max-width: 100vw; max-height: 100vh; box-shadow: none; border-radius: 0; }
+@media (max-width: 900px) {
+  .studio { flex-direction: column; }
+  .controls { width: 100%; }
+}
