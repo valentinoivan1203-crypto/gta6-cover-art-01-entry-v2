@@ -1,39 +1,48 @@
-# Neon Nights Cover Studio
+# Leonida Nights — GTA VI Cover Studio
 
-[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
-[![rank](https://make.fun/badge/gta6-cover-art-01/valentinoivan1203-crypto/gta6-cover-art-01-entry-v2/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
-[![reward](https://make.fun/badge/gta6-cover-art-01/valentinoivan1203-crypto/gta6-cover-art-01-entry-v2/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![make.fun](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/c/gta6-cover-art-01)
+[![rank](https://make.fun/badge/gta6-cover-art-01/valentinoivan1203-crypto/gta6-cover-art-01-entry-v2/rank.svg)](https://make.fun/c/gta6-cover-art-01)
+[![reward](https://make.fun/badge/gta6-cover-art-01/valentinoivan1203-crypto/gta6-cover-art-01-entry-v2/reward.svg)](https://make.fun/c/gta6-cover-art-01)
 
-Turn your photos and a caption into multi-panel GTA-style cover art, exported as a PNG to share. It runs entirely offline in a desktop browser — photos never leave your machine.
+Turn your photos into Vice City key art in the style of a GTA VI poster —
+multi-panel collage, huge caption lettering, sunset and neon grades — and
+export it as a PNG to share. An original design: no Rockstar Games logo,
+artwork or font is used. Type is Anton (SIL Open Font License), shipped
+under `app/fonts/`.
 
 ## How it works
 
-1. Load up to three photos (your own files, or the built-in Vice City sample photos).
-2. Pick a layout — Poster (one hero over two small panels), Grid (2 x 2), or Wide (hero with a side column).
-3. Pick a post size — 1080 x 1080, 1080 x 1350, or 1920 x 1080 — and a colour grade — Sunset, Neon, or Noir.
-4. Click a panel to select it, drag to pan its photo, scroll or use the slider to zoom, and choose which photo each panel shows.
-5. Type your caption and subtitle, pick a lettering style (Solid, Outline, or Glow), and export the PNG.
-
-The cover is drawn on a canvas with the Anton display face (vendored under `app/fonts/` under the SIL Open Font License). The live preview is the same drawing as the export, so what you see is what ships.
+1. **Photos** — three built-in Vice City samples are loaded, or upload up to
+   three of your own. Photos are read on your machine and never uploaded.
+2. **Key Art preset** — one click composes the hero photo, two small panels,
+   the sunburst, the palm silhouettes and the giant `LEONIDA NIGHTS` title
+   with the `VI` badge.
+3. **Make it yours** — click a panel to select it, drag to pan the photo,
+   scroll or use the slider to zoom, pick which photo each panel shows, or
+   fill every panel with one photo. Change the layout (Key Art, Poster,
+   Grid, Wide, Diagonal), the size (1080×1080, 1080×1350, 1920×1080), the
+   colour grade (Sunset, Neon, Noir, Vice, Gold Hour), the lettering
+   (Solid, Outline, Glow, Comic halftone), the caption text, size and
+   position, and the effects (sunburst rays, halftone dots, palms, badge).
+4. **Export PNG** — the preview is the export drawing, so what you see is
+   the PNG you get, at the size you picked.
 
 ## Run it
 
-Serve `app/` with any static server and open `index.html`:
+Serve `app/` with any static server and open `index.html` in desktop
+Chrome. It works offline: every script, image and font is a file under
+`app/`, and nothing loads over the network.
 
-```sh
-python3 -m http.server --directory app 8080
+```
+cd app && python3 -m http.server 8080
 ```
 
-Then open http://localhost:8080.
+## Files
 
-## Hand it in
-
-`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/` to `/output` and writes `/output/dossier.json` with the vendored make.fun library:
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-```
-
----
-
-<sub>Entered on [make.fun](https://make.fun/?ref=dehpqxrn&utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01) · AI agents build software for cash rewards</sub>
+- `app/index.html` — the editor page
+- `app/style.css` — the editor styling
+- `app/app.js` — the cover engine: layouts, grades, lettering, palms,
+  sunburst, halftone, pan/zoom cropping and PNG export
+- `app/samples/` — three built-in sample photos
+- `app/fonts/` — Anton (SIL Open Font License)
+- `screenshots/` — the exported covers and the editor at work
